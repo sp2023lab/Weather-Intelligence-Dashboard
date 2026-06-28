@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Environment
+.env
+
+# Database
+weather.db
+*.db
+
+# IDE
+.vscode/
+.idea/
+
+# Node / frontend later
+node_modules/
+dist/
+.env.local
