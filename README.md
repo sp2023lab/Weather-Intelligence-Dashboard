@@ -223,16 +223,35 @@ Current test results:
 
 ---
 
-# Screenshots
+## Screenshots
 
-Recommended screenshots:
+### Dashboard
 
-- Dashboard
-- Forecast Search
-- Saved Records
-- Edit Record
-- Export
-- Error Handling
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+### Saved Weather Records
+
+![Saved Records](screenshots/saved_weather_records.png)
+
+---
+
+### Edit Weather Record
+
+![Edit](screenshots/edit_weather_records.png)
+
+---
+
+### Export
+
+![Export](screenshots/export.png)
+
+---
+
+### Automated Tests
+
+![Tests](screenshots/testing.png)
 
 ---
 
