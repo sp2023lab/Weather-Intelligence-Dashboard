@@ -11,10 +11,20 @@ import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
 import AboutPMAccelerator from "../components/AboutPMAccelerator";
 
+function getTodayDateString() {
+  return new Date().toLocaleDateString("en-CA");
+}
+
+function getFutureDateString(daysToAdd: number) {
+  const date = new Date();
+  date.setDate(date.getDate() + daysToAdd);
+  return date.toLocaleDateString("en-CA");
+}
+
 export default function Home() {
   const [location, setLocation] = useState("London");
-  const [startDate, setStartDate] = useState("2026-06-28");
-  const [endDate, setEndDate] = useState("2026-07-03");
+  const [startDate, setStartDate] = useState(getTodayDateString());
+  const [endDate, setEndDate] = useState(getFutureDateString(4));
 
   const [forecast, setForecast] = useState<ForecastResponse | null>(null);
   const [records, setRecords] = useState<WeatherRecord[]>([]);
@@ -68,11 +78,22 @@ export default function Home() {
       }
 
       await fetchRecords();
+      await getForecast();
     } catch {
       setError("Could not save weather record. Check the location and date range.");
     } finally {
       setLoading(false);
     }
+  }
+
+  function getTodayDateString() {
+    return new Date().toISOString().split("T")[0];
+  }
+
+  function getFutureDateString(daysToAdd: number) {
+    const date = new Date();
+    date.setDate(date.getDate() + daysToAdd);
+    return date.toISOString().split("T")[0];
   }
 
   function editRecord(record: WeatherRecord) {
@@ -86,8 +107,8 @@ export default function Home() {
   function cancelEdit() {
     setEditingId(null);
     setLocation("London");
-    setStartDate("2026-06-28");
-    setEndDate("2026-07-03");
+    setStartDate(getTodayDateString());
+    setEndDate(getFutureDateString(4));
   }
 
   async function deleteRecord(id: number) {
