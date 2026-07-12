@@ -63,6 +63,27 @@ If permission is denied, a friendly error message is displayed.
 
 ---
 
+## Redis Caching
+
+Forecast and current-weather responses from the external WeatherAPI provider are cached in Redis.
+
+Caching provides:
+
+- Faster repeated weather requests
+- Fewer external API calls
+- Configurable cache expiration using TTL values
+- Separate cache keys for each location and forecast duration
+- Graceful fallback to WeatherAPI when Redis is unavailable
+
+Example cache keys:
+
+```text
+weather:current:london
+weather:forecast:london:5
+```
+
+---
+
 # Tech Stack
 
 ## Frontend
