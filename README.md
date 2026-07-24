@@ -6,6 +6,12 @@ The application allows users to search for weather forecasts, save weather recor
 
 ---
 
+## Architecture
+
+See the [system architecture documentation](docs/architecture.md) for an overview of the frontend, API, service, caching, integration, and persistence layers.
+
+---
+
 # Features
 
 ## Weather Forecasting
